@@ -3,7 +3,7 @@ import re
 
 ## SI 206 - W17 - HW3
 ## COMMENT WITH:
-## Your section day/time:
+## Your section day/time: Friday 1
 ## Any names of people you worked with on this assignment:
 
 #####################
@@ -11,8 +11,26 @@ import re
 
 ## PART 1: 300 points
 
-## Use regular expressions to define a function called parse_counted_words which should accept a string, find strings of the form: <count> <word>  e.g. 101 Dalmations, inside it, and should return either the LAST correctly matching number-word combo in the string as a tuple, e.g. ('13', "pineapples"), if there are any such sub-strings, or None, if there are not.
-## The number in the <count> should be one or more digits only. The word should be made up of an optional non-alphabetic character followed by any number of alphabetic characters, upper or lower case.
+def parse_counted_words(x): 
+    y = {}
+    y = re.findall('[0-9]+\s\D[a-z]+',x)
+    if len(y) > 0:
+        r = len(y) - 1
+        p = y[r] 
+        m = re.findall('[0-9]+',p)
+        t = re.findall('[0-9]+\s([^ ]*)',p)
+        n = (m[0], t[0])
+        return n
+    
+    
+    
+
+
+## Use regular expressions to define a function called parse_counted_words which should accept a string, 
+##find strings of the form: <count> <word>  e.g. 101 Dalmations, inside it, and should return either the LAST correctly 
+##matching number-word combo in the string as a tuple, e.g. ('13', "pineapples"), if there are any such sub-strings, or None, if there are not.
+## The number in the <count> should be one or more digits only. The word should be made up of an optional non-alphabetic character followed 
+##by any number of alphabetic characters, upper or lower case.
 ## HINT:  \b matches the beginning or end of a word
 ## HINT:  you can use the Python re .findall method to get multiple matches in a string
 #parse_counted_words('5 watermelons, 13 pineapples, and 1 papaya.') should return ('1', 'papaya')
@@ -22,6 +40,31 @@ import re
 
 
 
+hand = open('computer_paths.txt')
+x= {}
+r=0
+g='Documents/SI206/'
+h='.py'
+rr = ".docx"
+tt= ".xlsx"
+tttt='Us'
+n=0
+qq=0
+for line in hand: 
+    if re.search('h',line): 
+        if re.search('g',line):
+            r += 1
+    if re.search('',line):
+        if re.search('rr',line):
+            n+=1 
+    y = re.findall('~[^ ]*', line)
+    z= re.findall('[S][I]',line)
+for line in hand: 
+    if re.search(tttt,line):
+        qq+=1 
+
+python_course_paths = z
+microsoft_files_num =qq
 
 ## PART 2: 200 points
 
