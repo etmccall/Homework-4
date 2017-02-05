@@ -43,27 +43,25 @@ def parse_counted_words(x):
 hand = open('computer_paths.txt')
 x= {}
 r=0
-g='Documents/SI206/'
-h='.py'
-rr = ".docx"
-tt= ".xlsx"
-tttt='Us'
+g="\.[a-z]+"
+rr = "(/Users|~/).+"
+tt= "SI206.+py"
+tttt='[0-9](.docx|.xlsx)'
 n=0
 qq=0
-for line in hand: 
-    if re.search('h',line): 
-        if re.search('g',line):
-            r += 1
-    if re.search('',line):
-        if re.search('rr',line):
-            n+=1 
-    y = re.findall('~[^ ]*', line)
-    z= re.findall('[S][I]',line)
-for line in hand: 
+z = 0
+for line in hand:  
+    if re.search(g,line):
+        r = r+1
+    if re.search(tt,line):
+        n = n + 1
     if re.search(tttt,line):
-        qq+=1 
-
-python_course_paths = z
+        qq = qq + 1
+    if re.search(rr,line):
+        z = z+1
+file_paths_num =r
+full_paths_num = z 
+python_course_paths = n
 microsoft_files_num =qq
 
 ## PART 2: 200 points
