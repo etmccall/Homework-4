@@ -7,8 +7,8 @@ import codecs
 
 ## SI 206 - W17 - HW4
 ## COMMENT WITH:
-## Your section day/time:
-## Any names of people you worked with on this assignment:
+## Your section day/time: Friday 1 - 2
+## Any names of people you worked with on this assignment: Scott Zabrowski
 
 #####################
 
@@ -55,31 +55,23 @@ f.close()
 nytimes_headline = []
  
 r = requests.get('http://www.nytimes.com')
-##r = r.replace(u"\u2018", "").replace(u"\u2019", "").replace(u"\u201c","").replace(u"\u201d", "")
+
 rr = r.text.encode('utf-8')
 
-##page_text= unicode(rr)
-##page_text = page_text.encode('u').decode('ascii', 'ignore')
+
 soup = BeautifulSoup(r.text, 'html.parser')
 
 
 
 title = soup.find_all(class_="story-heading")
-##g= "u'"
-##title = title.replace("g","")
-##title = title.replace("u2019","")
-##title = title.replace("u2018","")
+
 
 for row in title:
 	z =row.text.strip()
-	##z = row.findall('[a-zA-Z]+',row)
 	nytimes_headline.append(z.encode('utf-8'))
 
 nytimes_headlines = nytimes_headline[:10]
-##print (nytimes_headlines)
-
-z = len(nytimes_headlines)
-
+print(nytimes_headlines)
 
 
 
@@ -113,18 +105,14 @@ for er in people:
 	for grade in titl:
 		col = grade.find(class_="field-item even").text
 		li.append(col.encode('utf-8'))
-		##print(col)
-		##for there in col: 
-			##hol = there.findall('class')
-			##print(hol)
+
 lii=[]
 title =sou.find_all(property="dc:title")
 ##print (title)
 for whattup in title: 
 	zaza = whattup.find('h2').text
 	lii.append(zaza.encode('utf-8'))
-	##title_tag = zaza.contents[0]
-	##print(title_tag) 
+	
 umsi_titles={}
 z = len(lii)
 for h in range(z): 
